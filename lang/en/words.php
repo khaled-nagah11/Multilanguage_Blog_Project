@@ -14,6 +14,9 @@ return [
     */
 
     'dashboard' => 'dashboard',
+    'Settings' => 'Settings',
+
+
 
 
 

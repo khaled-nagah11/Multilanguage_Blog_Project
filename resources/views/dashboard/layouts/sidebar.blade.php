@@ -2,7 +2,7 @@
     <nav class="sidebar-nav">
         <ul class="nav">
             <li class="nav-item">
-                <a class="nav-link" href="index.html"><i class="icon-speedometer"></i> داشبرد <span class="tag tag-info">جدید</span></a>
+                <a class="nav-link" href="index.html"><i class="icon-speedometer"></i> {{__('words.dashboard')}} <span class="tag tag-info">جدید</span></a>
             </li>
 
             <li class="nav-title">
@@ -25,7 +25,7 @@
                 گزارش گیری
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#"><i class="icon-people"></i> کاربران</a>
+                <a class="nav-link" href="{{route('dashboard.settings')}}"><i class="icon-people"></i> {{trans('words.Settings')}}</a>
                 <a class="nav-link" href="#"><i class="icon-docs"></i>  فایل ها</a>
             </li>
             <!--<li class="nav-item nav-dropdown">
