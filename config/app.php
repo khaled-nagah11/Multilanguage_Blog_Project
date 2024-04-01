@@ -84,6 +84,12 @@ return [
 
     'locale' => 'en',
 
+    'languages'=>[
+       'ar'=>'العربيه',
+       'en'=>'english',
+       'fr'=>'french',
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Application Fallback Locale
