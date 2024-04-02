@@ -7,12 +7,12 @@
         </li>
         <li class="breadcrumb-item active">داشبرد</li>
     </ol>
-    {{-- {{dd($setting)}} --}}
+{{--     {{dd($setting)}}--}}
 
     <div class="container-fluid">
         <div class="animated fadeIn">
-            <form action="{{Route('dashboard.settings.update' , $setting)}}" method="post" enctype="multipart/form-data">
-                @csrf
+            <form action="{{route('dashboard.settings.update', $setting)}}" method="post" enctype="multipart/form-data">
+            @csrf
                 <div class="row">
                     @if ($errors->any())
                         <div class="alert alert-danger">
@@ -96,7 +96,7 @@
                                             </div>
                                             <div class="form-group col-md-12">
                                                 <label>{{ __('words.address') }}</label>
-                                                <input type="text"name="{{$key}}[address]" class="form-control"   value="{{$setting->translate($key)->address}}">
+                                                <input type="text"name="{{$key}}[address]" class="form-control" value="{{$setting->translate($key)->address}}">
                                             </div>
                                         </div>
                                     @endforeach
@@ -115,4 +115,4 @@
         </div>
     </div>
 @endsection
-z
+
