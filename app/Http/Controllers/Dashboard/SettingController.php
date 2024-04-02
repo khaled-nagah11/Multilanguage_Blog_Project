@@ -12,23 +12,9 @@ class SettingController extends Controller
 {
     public function update(SettingRequest $request , Setting $setting)
     {
-//        $data = [
-//            'image' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
-//            'favicon' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
-//            'facebook' => 'nullable|string',
-//            'instagram' => 'nullable|string',
-//            'phone' => 'nullable|string',
-//            'email' => 'nullable|email',
 
-//        ];
-        foreach (config('app.languages') as $key => $value) {
-            $data[$key . '*.title'] = 'nullable|string';
-            $data[$key . '*.content'] = 'nullable|string';
-            $data[$key . '*.address'] = 'nullable|string';
-        }
-
-        $validatedData = $request->validate();
-        $setting->update($request->except('image', 'favicon', '_token'));
+        $validated = $request->validated();
+        $setting->update($validated->except('image', 'favicon', '_token'));
 
         if ($request->file('logo'))
         {
