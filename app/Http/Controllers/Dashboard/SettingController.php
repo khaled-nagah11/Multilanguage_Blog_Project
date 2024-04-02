@@ -14,7 +14,7 @@ class SettingController extends Controller
     {
 
         $validated = $request->validated();
-        $setting->update($validated->except('image', 'favicon', '_token'));
+        $setting->update($request->except('image', 'favicon', '_token'));
 
         if ($request->file('logo'))
         {

@@ -29,3 +29,7 @@ Route::group(['prefix' =>'dashboard' , 'as' => 'dashboard.'], function (){
 
     Route::post('/settings/update/{setting}' ,[SettingController::class , 'update'])->name('settings.update');
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
