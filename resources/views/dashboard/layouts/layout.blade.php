@@ -382,13 +382,16 @@
 <script src="//localhost:35729/livereload.js"></script>
 <script src="https://cdn.datatables.net/2.0.3/js/dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/2.0.3/js/dataTables.bootstrap4.min.js"></script>
+{{--<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>--}}
+{{--<script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap4.min.js"></script>--}}
 <script>
-    $(document).ready(function (){
-       $('#table_id').DataTable({
-          processing: true,
-       });
-    });
+    // $(document).ready(function (){
+    //    $('#table_id').DataTable({
+    //       processing: true,
+    //    });
+    // });
 </script>
+@stack('javascripts')
 </body>
 </html>
 

@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Yajra\DataTables\Contracts\DataTable;
+use Yajra\DataTables\DataTables;
 
 class UserController extends Controller
 {
@@ -25,29 +28,33 @@ class UserController extends Controller
 
     public function getUsersDatatable()
     {
-        if (auth()->user()->can('viewAny', $this->user)) {
-            $data = User::select('*');
-        }else{
-            $data = User::where('id' , auth()->user()->id);
-        }
-        return   Datatables::of($data)
-            ->addIndexColumn()
-            ->addColumn('action', function ($row) {
-                $btn = '';
-                if (auth()->user()->can('update', $row)) {
-                    $btn .= '<a href="' . Route('dashboard.users.edit', $row->id) . '"  class="edit btn btn-success btn-sm" ><i class="fa fa-edit"></i></a>';
-                }
-                if (auth()->user()->can('delete', $row)) {
-                    $btn .= '
 
-                        <a id="deleteBtn" data-id="' . $row->id . '" class="edit btn btn-danger btn-sm"  data-toggle="modal" data-target="#deletemodal"><i class="fa fa-trash"></i></a>';
-                }
-                return $btn;
-            })
-            ->addColumn('status', function ($row) {
-                return $row->status == null ? __('words.not activated') : __('words.' . $row->status);
-            })
-            ->rawColumns(['action', 'status'])
+        $data = User::select('*');
+        return DataTables::of($data)->addIndexColumn()
+
+//        if (auth()->user()->can('viewAny', $this->user)) {
+//            $data = User::select('*');
+//        }else{
+//            $data = User::where('id' , auth()->user()->id);
+//        }
+//        return Datatables::of($data)
+//            ->addIndexColumn()
+//            ->addColumn('action', function ($row) {
+//                $btn = '';
+//                if (auth()->user()->can('update', $row)) {
+//                    $btn .= '<a href="' . Route('dashboard.users.edit', $row->id) . '"  class="edit btn btn-success btn-sm" ><i class="fa fa-edit"></i></a>';
+//                }
+//                if (auth()->user()->can('delete', $row)) {
+//                    $btn .= '
+//
+//                        <a id="deleteBtn" data-id="' . $row->id . '" class="edit btn btn-danger btn-sm"  data-toggle="modal" data-target="#deletemodal"><i class="fa fa-trash"></i></a>';
+//                }
+//                return $btn;
+//            })
+//            ->addColumn('status', function ($row) {
+//                return $row->status == null ? __('words.not activated') : __('words.' . $row->status);
+//            })
+//            ->rawColumns(['action', 'status'])
             ->make(true);
     }
 

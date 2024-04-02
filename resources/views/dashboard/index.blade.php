@@ -18,7 +18,6 @@
             </div>
         </li>
     </ol>
-
     <div class="container-fluid">
 
         <div class="animated fadeIn">
@@ -107,11 +106,10 @@
                     </div>
                 </div>
                 <!--/col-->
-
             </div>
             <!--/row-->
         </div>
-
     </div>
     <!--/.container-fluid-->
 @endsection()
+

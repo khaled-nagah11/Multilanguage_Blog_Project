@@ -32,7 +32,7 @@ Route::group(['prefix' =>'dashboard' , 'as'=>'dashboard.', 'middleware'=>['auth'
       return view('dashboard.settings');
     })->name('settings');
     Route::post('/settings/update/{setting}' ,[SettingController::class , 'update'])->name('settings.update');
-    Route::post('/user/all' ,[UserController::class , 'getUsersDatatable'])->name('users.all');
+    Route::get('/users/all' ,[UserController::class , 'getUsersDatatable'])->name('users.all');
     Route::resources([
         'users'=>UserController::class,
     ]);

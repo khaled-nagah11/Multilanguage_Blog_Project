@@ -59,43 +59,42 @@
     </div>
     {{-- delete --}}
 @endsection
-{{--@push('javascripts')--}}
-{{--    <script type="text/javascript">--}}
-{{--        $(function() {--}}
-{{--            var table = $('#table_id').DataTable({--}}
-{{--                processing: true,--}}
-{{--                serverSide: true,--}}
-{{--                ajax: "{{ Route('dashboard.users.all') }}",--}}
-{{--                columns: [{--}}
-{{--                    data: 'id',--}}
-{{--                    name: 'id'--}}
-{{--                },--}}
-{{--                    {--}}
-{{--                        data: 'name',--}}
-{{--                        name: 'name'--}}
-{{--                    },--}}
-{{--                    {--}}
-{{--                        data: 'email',--}}
-{{--                        name: 'email'--}}
-{{--                    },--}}
-{{--                    {--}}
-{{--                        data: 'status',--}}
-{{--                        name: 'status',--}}
-{{--                    },--}}
-{{--                    {--}}
-{{--                        data: 'action',--}}
-{{--                        name: 'action',--}}
-{{--                        orderable: false,--}}
-{{--                        searchable: false--}}
+@push('javascripts')
+    <script type="text/javascript">
+        $(function() {
+            var table = $('#table_id').DataTable({
+                processing: true,
+                serverSide: true,
+                order: [
+                  [0,'desc']
+                ],
+                ajax: "{{ Route('dashboard.users.all') }}",
+                columns: [{
+                    data: 'id',
+                    name: 'id'
+                },
+                    {
+                        data: 'name',
+                        name: 'name'
+                    },
+                    {
+                        data: 'email',
+                        name: 'email'
+                    },
+                    {
+                        data: 'status',
+                        name: 'status',
+                    },
+                    {
+                        data: 'action',
+                        name: 'action',
+                        orderable: false,
+                        searchable: false
 
-{{--                    }--}}
-{{--                ]--}}
-{{--            });--}}
-{{--        });--}}
-{{--        $('#table_id tbody').on('click', '#deleteBtn', function(argument) {--}}
-{{--            var id = $(this).attr("data-id");--}}
-{{--            console.log(id);--}}
-{{--            $('#deletemodal #id').val(id);--}}
-{{--        })--}}
-{{--    </script>--}}
-{{--@endpush--}}
+                    }
+                ]
+            });
+        });
+
+    </script>
+@endpush
