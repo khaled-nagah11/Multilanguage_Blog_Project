@@ -9,7 +9,7 @@
                 Users
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{route('dashboard.users.index')}}"><i class="icon-user-follow"></i>{{__('words.add user')}}</a>
+                <a class="nav-link" href="{{route('dashboard.users.create')}}"><i class="icon-user-follow"></i>{{__('words.add user')}}</a>
                 <a class="nav-link" href="{{route('dashboard.users.index')}}"><i class="icon-people"></i>{{__('words.users')}}</a>
                 <a class="nav-link" href="#"><i class="icon-user-following"></i> دسترسی کاربران</a>
             </li>

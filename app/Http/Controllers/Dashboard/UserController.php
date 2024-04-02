@@ -20,7 +20,35 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.users.add');
+    }
+
+    public function getUsersDatatable()
+    {
+        if (auth()->user()->can('viewAny', $this->user)) {
+            $data = User::select('*');
+        }else{
+            $data = User::where('id' , auth()->user()->id);
+        }
+        return   Datatables::of($data)
+            ->addIndexColumn()
+            ->addColumn('action', function ($row) {
+                $btn = '';
+                if (auth()->user()->can('update', $row)) {
+                    $btn .= '<a href="' . Route('dashboard.users.edit', $row->id) . '"  class="edit btn btn-success btn-sm" ><i class="fa fa-edit"></i></a>';
+                }
+                if (auth()->user()->can('delete', $row)) {
+                    $btn .= '
+
+                        <a id="deleteBtn" data-id="' . $row->id . '" class="edit btn btn-danger btn-sm"  data-toggle="modal" data-target="#deletemodal"><i class="fa fa-trash"></i></a>';
+                }
+                return $btn;
+            })
+            ->addColumn('status', function ($row) {
+                return $row->status == null ? __('words.not activated') : __('words.' . $row->status);
+            })
+            ->rawColumns(['action', 'status'])
+            ->make(true);
     }
 
     /**
