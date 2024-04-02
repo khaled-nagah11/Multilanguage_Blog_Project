@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Dashboard\SettingController;
+use App\Http\Controllers\HomeController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,7 +22,10 @@ Route::get('/' , function (){
    return view('dashboard.index');
 });
 
-Route::group(['prefix' =>'dashboard' , 'as' => 'dashboard.'], function (){
+Route::group(['prefix' =>'dashboard' , 'as' => 'dashboard.' , 'middleware'=>'auth'], function (){
+    Route::get('/', function (){
+        return view('dashboard.layouts.layout');
+    })->name('dashboard');
 
     Route::get('/settings', function (){
       return view('dashboard.settings');
@@ -32,4 +37,4 @@ Route::group(['prefix' =>'dashboard' , 'as' => 'dashboard.'], function (){
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
