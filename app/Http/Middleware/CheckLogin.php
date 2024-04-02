@@ -20,6 +20,7 @@ class CheckLogin
         if(auth()->user()->status != 'admin' || auth()->user()->status != 'writer')
         {
             Auth::logout();
+            return redirect()->route('login');
         }
         return $next($request);
     }

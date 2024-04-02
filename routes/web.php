@@ -22,7 +22,7 @@ Route::get('/' , function (){
    return view('dashboard.index');
 });
 
-Route::group(['prefix' =>'dashboard' , 'as' => 'dashboard.' , 'middleware'=>'auth'], function (){
+Route::group(['prefix' =>'dashboard' , 'as'=>'dashboard.', 'middleware'=>['auth','CheckLogin']], function (){
     Route::get('/', function (){
         return view('dashboard.layouts.layout');
     })->name('dashboard');
