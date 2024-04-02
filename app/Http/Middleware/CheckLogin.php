@@ -17,7 +17,8 @@ class CheckLogin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(auth()->user()->status != 'admin' || auth()->user()->status != 'writer')
+        $user_status = ['admin','writer'];
+        if(!in_array(auth()->user()->status , $user_status))
         {
             Auth::logout();
             return redirect()->route('login');
