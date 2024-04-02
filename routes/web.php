@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Dashboard\SettingController;
+use App\Http\Controllers\Dashboard\UserController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -30,9 +31,11 @@ Route::group(['prefix' =>'dashboard' , 'as'=>'dashboard.', 'middleware'=>['auth'
     Route::get('/settings', function (){
       return view('dashboard.settings');
     })->name('settings');
-
-
     Route::post('/settings/update/{setting}' ,[SettingController::class , 'update'])->name('settings.update');
+    Route::resources([
+        'users'=>UserController::class,
+    ]);
+
 });
 
 Auth::routes();
