@@ -19,7 +19,7 @@
     </ol>
     <div class="container-fluid">
         <div class="animated fadeIn">
-            <form action="{{ Route('dashboard.users.store') }}" method="post">
+            <form action="" method="post">
                 @csrf
                 @method('POST')
                 <div class="row">

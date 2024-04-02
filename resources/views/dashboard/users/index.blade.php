@@ -8,10 +8,7 @@
         </li>
         <li class="breadcrumb-item active">داشبرد</li>
     </ol>
-
-
     <div class="container-fluid">
-
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header">
@@ -29,34 +26,26 @@
                         </tr>
                         </thead>
                         <tbody>
-
-
                         </tbody>
                     </table>
-
                 </div>
             </div>
         </div>
     </div>
-
     {{-- delete --}}
     <div class="modal fade" id="deletemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
          aria-hidden="true">
         <div class="modal-dialog">
-            <form action="{{ Route('dashboard.users.delete') }}" method="POST">
+            <form action="" method="POST">
                 <div class="modal-content">
 
                     <div class="modal-body">
                         @csrf
-
                         <div class="form-group">
                             <p>{{ __('words.sure delete') }}</p>
                             @csrf
                             <input type="hidden" name="id" id="id">
                         </div>
-
-
-
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-info" data-dismiss="modal">{{ __('words.close') }}</button>
