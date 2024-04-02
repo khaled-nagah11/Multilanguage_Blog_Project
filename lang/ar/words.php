@@ -15,6 +15,8 @@ return [
 
     'dashboard' => 'لوحة التحكم',
     'Settings' => 'الإعدادات',
+    'translations'=>'الترجمات',
+    'users'=>'المستخدمين',
 
 
 

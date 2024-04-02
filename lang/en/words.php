@@ -15,6 +15,8 @@ return [
 
     'dashboard' => 'dashboard',
     'Settings' => 'Settings',
+    'translations'=>'Translations',
+    'users'=>'Users',
 
 
 
