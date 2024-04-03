@@ -32,51 +32,33 @@
             </div>
         </div>
     </div>
-    {{-- delete --}}
-    <div class="modal fade" id="deletemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-         aria-hidden="true">
-        <div class="modal-dialog">
-            <form action="" method="POST">
-                <div class="modal-content">
+@endsection
 
-                    <div class="modal-body">
+{{-- delete --}}
+<div class="modal fade" id="deletemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <form action="{{ Route('dashboard.users.delete')}}" method="POST">
+            <div class="modal-content">
+                <div class="modal-body">
+                    @csrf
+                    <div class="form-group">
+                        <p>{{ __('words.sure delete') }}</p>
                         @csrf
-                        <div class="form-group">
-                            <p>{{ __('words.sure delete') }}</p>
-                            @csrf
-                            <input type="hidden" name="id" id="id">
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-info" data-dismiss="modal">{{ __('words.close') }}</button>
-                        <button type="submit" class="btn btn-danger">{{ __('words.delete') }} </button>
+                        <input type="hidden" name="id" id="id">
                     </div>
                 </div>
-            </form>
-            <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info" data-dismiss="modal">{{ __('words.close') }}</button>
+                    <button type="submit" class="btn btn-danger">{{ __('words.delete') }} </button>
+                </div>
+            </div>
+        </form>
+        <!-- /.modal-content -->
     </div>
-    {{-- delete --}}
-@endsection
-{{-- modal to show warning message --}}
-<div class="modal" id="deletemodal" tabindex="-1">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Modal title</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p>Modal body text goes here.</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-        </div>
-    </div>
+    <!-- /.modal-dialog -->
 </div>
+
 @push('javascripts')
     <script type="text/javascript">
         $(function() {
@@ -113,6 +95,10 @@
                 ]
             });
         });
-
+        $('#table_id tbody').on('click', '#deleteBtn', function(argument) {
+            var id = $(this).attr("data-id");
+            console.log(id);
+            $('#deletemodal #id').val(id);
+        })
     </script>
 @endpush

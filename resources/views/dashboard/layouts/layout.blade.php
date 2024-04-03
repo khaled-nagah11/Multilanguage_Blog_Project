@@ -9,14 +9,14 @@
     <meta name="description" content="CoreUI Bootstrap 4 Admin Template">
     <meta name="author" content="Lukasz Holeczek">
     <meta name="keyword" content="CoreUI Bootstrap 4 Admin Template">
-    <!-- <link rel="shortcut icon" href="assets/ico/favicon.png"> -->
+{{--    <link rel="shortcut icon" href="assets/ico/favicon.png"> --}}
     <title>CoreUI Bootstrap 4 Admin Template</title>
     <!-- Icons -->
     <link href="{{asset('Admin-Assets/css/font-awesome.min.css')}}" rel="stylesheet">
     <link href="{{asset('Admin-Assets/css/simple-line-icons.css')}}" rel="stylesheet">
     <!-- Main styles for this application -->
     <link href="{{asset('Admin-Assets/dest/style.css')}}" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.3/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.3/css/dataTables.bootstrap5.min.css">
 </head>
 <body class="navbar-fixed sidebar-nav fixed-nav">
 <header class="navbar">
@@ -382,8 +382,6 @@
 <script src="//localhost:35729/livereload.js"></script>
 <script src="https://cdn.datatables.net/2.0.3/js/dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/2.0.3/js/dataTables.bootstrap5.min.js"></script>
-{{--<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>--}}
-{{--<script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap4.min.js"></script>--}}
 <script>
     // $(document).ready(function (){
     //    $('#table_id').DataTable({
