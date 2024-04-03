@@ -104,4 +104,8 @@ class UserController extends Controller
     {
         //
     }
+    public function delete(Request $request)
+    {
+
+    }
 }
