@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Route;
 use Yajra\DataTables\Contracts\DataTable;
 use Yajra\DataTables\DataTables;
 
@@ -31,6 +32,12 @@ class UserController extends Controller
 
         $data = User::select('*');
         return DataTables::of($data)->addIndexColumn()
+            ->addColumn('action',function ($row){
+                return $btn = '
+                <a href="'.Route('dashboard.users.edit',$row->id).'" class="edit btn btn-success btn-sm"><i class="fa fa-edit"></i><a/>
+                <a id="deleteBtn" data-id="'.$row->id.'" class="edit btn btn-danger btn-sm" data-toggle="modal"
+                data-target="#deletemodal"><i class="fa fa-trash"></i></a>';
+            })
 
 //        if (auth()->user()->can('viewAny', $this->user)) {
 //            $data = User::select('*');
