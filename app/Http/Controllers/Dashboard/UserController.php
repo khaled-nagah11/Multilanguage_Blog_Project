@@ -11,17 +11,10 @@ use Yajra\DataTables\DataTables;
 
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         return view('dashboard.users.index');
     }
-
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         return view('dashboard.users.add');
@@ -38,6 +31,7 @@ class UserController extends Controller
                 <a id="deleteBtn" data-id="'.$row->id.'" class="edit btn btn-danger btn-sm" data-toggle="modal"
                 data-target="#deletemodal"><i class="fa fa-trash"></i></a>';
             })
+
 
 //        if (auth()->user()->can('viewAny', $this->user)) {
 //            $data = User::select('*');
@@ -61,13 +55,13 @@ class UserController extends Controller
 //            ->addColumn('status', function ($row) {
 //                return $row->status == null ? __('words.not activated') : __('words.' . $row->status);
 //            })
-//            ->rawColumns(['action', 'status'])
+            ->addColumn('status', function ($row) {
+            return $row->status == null ? __('words.not activated') : __('words.' . $row->status);
+            })
+            ->rawColumns(['action', 'status'])
             ->make(true);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         //
@@ -92,9 +86,14 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, User $user)
     {
-        //
+//        $request->validate([
+//            'name' => 'required|string|max:255',
+//            'email' => 'nullable|string|email|max:255,',
+//        ]);
+        $user->update($request->all());
+        return redirect()->route('dashboard.users.index');
     }
 
     /**
