@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreUserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Route;
@@ -60,9 +61,9 @@ class UserController extends Controller
             ->make(true);
     }
 
-    public function store(Request $request)
+    public function store(StoreUserRequest $request)
     {
-        //
+
     }
 
     /**
