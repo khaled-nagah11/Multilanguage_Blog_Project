@@ -60,10 +60,14 @@ class UserController extends Controller
             ->rawColumns(['action', 'status'])
             ->make(true);
     }
-
     public function store(StoreUserRequest $request)
     {
-
+        User::create([
+            'name' => $request->name,
+            'status' => $request->status,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+        ]);        return redirect()->route('dashboard.users.index');
     }
 
     /**
