@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Dashboard\CategoryController;
 use App\Http\Controllers\Dashboard\SettingController;
 use App\Http\Controllers\Dashboard\UserController;
 use App\Http\Controllers\HomeController;
@@ -31,11 +32,15 @@ Route::group(['prefix' =>'dashboard' , 'as'=>'dashboard.', 'middleware'=>['auth'
     Route::get('/settings', function (){
       return view('dashboard.settings');
     })->name('settings');
+
     Route::post('/settings/update/{setting}' ,[SettingController::class , 'update'])->name('settings.update');
+
     Route::get('/users/all' ,[UserController::class , 'getUsersDatatable'])->name('users.all');
     Route::post('/users/delete' ,[UserController::class , 'delete'])->name('users.delete');
+
     Route::resources([
         'users'=>UserController::class,
+        'category'=>CategoryController::class,
     ]);
 
 });

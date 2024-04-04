@@ -13,5 +13,12 @@ class Category extends Model implements TranslatableContract
     public $translatedAttributes = ['title', 'content'];
     protected $fillable = ['id', 'image', 'parent', 'deleted_at', 'created_at', 'updated_at'];
 
-    
+    public function parent()
+    {
+        return $this->belongsTo(Category::class , 'parent');
+    }
+    public function children()
+    {
+        return $this->hasMany(Category::class , 'parent');
+    }
 }
