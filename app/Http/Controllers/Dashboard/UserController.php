@@ -31,8 +31,9 @@ class UserController extends Controller
                 <a id="deleteBtn" data-id="'.$row->id.'" class="edit btn btn-danger btn-sm" data-toggle="modal"
                 data-target="#deletemodal"><i class="fa fa-trash"></i></a>';
             })
-
-
+            ->addColumn('status', function ($row) {
+                return $row->status == null ? __('words.not activated') : __('words.' . $row->status);
+            })
 //        if (auth()->user()->can('viewAny', $this->user)) {
 //            $data = User::select('*');
 //        }else{
@@ -55,9 +56,6 @@ class UserController extends Controller
 //            ->addColumn('status', function ($row) {
 //                return $row->status == null ? __('words.not activated') : __('words.' . $row->status);
 //            })
-            ->addColumn('status', function ($row) {
-            return $row->status == null ? __('words.not activated') : __('words.' . $row->status);
-            })
             ->rawColumns(['action', 'status'])
             ->make(true);
     }

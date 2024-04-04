@@ -49,11 +49,7 @@
                                     <select name="status" id="" class="form-control">
                                         <option value="admin" @if ($user->status == 'admin')selected @endif>Admin</option>
                                         <option value="writer" @if ($user->status == 'Writer')selected @endif>Writer</option>
-{{--                                        <option value="" @if ($user->status == '')selected @endif>غير مفعل </option>--}}
-
-                                        <option value=" " @if ($user->status == ' ')
-                                            selected
-                                            @endif>غير مفعل </option>
+                                        <option value="" @if ($user->status == '')selected @endif>غير مفعل </option>
                                     </select>
                                 </div>
 {{--                            @endcan--}}
