@@ -67,7 +67,8 @@ class UserController extends Controller
             'status' => $request->status,
             'email' => $request->email,
             'password' => bcrypt($request->password),
-        ]);        return redirect()->route('dashboard.users.index');
+        ]);
+        return redirect()->route('dashboard.users.index');
     }
 
     /**
