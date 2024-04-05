@@ -6,14 +6,14 @@
         <li class="breadcrumb-item">{{__('words.dashboard')}}</li>
         <li class="breadcrumb-item"><a href="#">{{ __('words.categories') }}</a>
         </li>
-        <li class="breadcrumb-item active">{{ __('words.add user') }}</li>
+        <li class="breadcrumb-item active">{{ __('words.add category') }}</li>
 
         <!-- Breadcrumb Menu-->
         <li class="breadcrumb-menu">
             <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
                 <a class="btn btn-secondary" href="#"><i class="icon-speech"></i></a>
                 <a class="btn btn-secondary" href="./"><i class="icon-graph"></i> &nbsp;{{ __('words.categories') }}</a>
-                <a class="btn btn-secondary" href="#"><i class="icon-settings"></i> &nbsp;{{ __('words.add user') }}</a>
+                <a class="btn btn-secondary" href="#"><i class="icon-settings"></i> &nbsp;{{ __('words.add category') }}</a>
             </div>
         </li>
     </ol>
@@ -34,7 +34,7 @@
                     @endif
                     <div class="card">
                         <div class="card-header">
-                            <strong>{{ __('words.users') }}</strong>
+                            <strong>{{ __('words.Category') }}</strong>
                         </div>
                         <div class="card-block">
                             <div class="form-group col-md-12">
@@ -43,20 +43,16 @@
                                 >
                             </div>
                             <div class="form-group col-md-12">
-                                <label>{{ __('words.email') }}</label>
-                                <input type="text" name="email" class="form-control"
-                                       placeholder="{{ __('words.email') }}" >
-                            </div>
-                            <div class="form-group col-md-12">
                                 <label>{{ __('words.password') }}</label>
                                 <input type="password" name="password" class="form-control" placeholder="{{ __('words.password') }}" >
                             </div>
                             <div class="form-group col-md-12">
                                 <label>{{ __('words.status') }}</label>
-                                <select name="status" id="" class="form-control">
-                                    <option value="admin">Admin</option>
-                                    <option value="writer" >Writer</option>
-                                    <option value="">غير مفعل </option>
+                                <select name="parent" id="" class="form-control">
+                                    <option value="0">قسم رئيسى</option>
+                                    @foreach($categories as $category)
+                                    <option value="{{$category->id}}">{{$category->title}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>

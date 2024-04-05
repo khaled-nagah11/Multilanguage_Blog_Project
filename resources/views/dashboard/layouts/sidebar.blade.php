@@ -4,30 +4,35 @@
             <li class="nav-item">
                 <a class="nav-link" href="index.html"><i class="icon-speedometer"></i> {{__('words.dashboard')}} <span class="tag tag-info">جدید</span></a>
             </li>
-
+            {{--         sidebar users--}}
             <li class="nav-title">
-                Users
+                {{__('words.Users')}}
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{route('dashboard.users.create')}}"><i class="icon-user-follow"></i>{{__('words.add user')}}</a>
                 <a class="nav-link" href="{{route('dashboard.users.index')}}"><i class="icon-people"></i>{{__('words.users')}}</a>
                 <a class="nav-link" href="#"><i class="icon-user-following"></i> دسترسی کاربران</a>
             </li>
-
+            {{--         sidebar categories--}}
             <li class="nav-title">
-                مدیریت فایل ها
+                {{__('words.Categories')}}
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#"><i class="icon-docs"></i> لیست فایل ها</a>
+                <a class="nav-link" href="{{route('dashboard.category.create')}}"><i class="icon-user-follow"></i>{{__('words.add Category')}}</a>
+                <a class="nav-link" href="{{route('dashboard.category.index')}}"><i class="icon-people"></i>{{__('words.Categories')}}</a>
+                <a class="nav-link" href="#"><i class="icon-user-following"></i> دسترسی کاربران</a>
             </li>
-
+            {{--         sidebar settings--}}
             <li class="nav-title">
-                گزارش گیری
+                {{__('words.Settings')}}
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{route('dashboard.settings')}}"><i class="icon-people"></i> {{trans('words.Settings')}}</a>
                 <a class="nav-link" href="#"><i class="icon-docs"></i>  فایل ها</a>
             </li>
+
+
+
             <!--<li class="nav-item nav-dropdown">
                 <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-puzzle"></i> ثبت کاربر جدید</a>
                 <ul class="nav-dropdown-items">

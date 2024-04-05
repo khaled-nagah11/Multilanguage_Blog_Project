@@ -58,7 +58,6 @@ class CategoryController extends Controller
 //            })
             ->rawColumns(['action', 'status'])
             ->make(true);
-        dd($data);
     }
 
     /**
@@ -66,7 +65,8 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+        return view('dashboard.categories.add' , compact('categories'));
     }
 
     /**
