@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Yajra\DataTables\Contracts\DataTable;
 use Yajra\DataTables\DataTables;
 
@@ -16,7 +17,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        return view('dashboard.categories.index');
     }
 
     public function getCategoriesDatatable()
@@ -74,7 +75,17 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $category = category::create($request->except('image', '_token'));
+        if ($request->file(''))
+        {
+            $file = $request->file('image');
+            $filename = Str::uuid() . $file->getClientOriginalName();
+            $file->move(public_path('images'), $filename);
+            $path = 'images/' . $filename;
+            $category->update(['image' => $path]);
+        }
+        return redirect()->route('dashboard.category.index');
     }
 
     /**
