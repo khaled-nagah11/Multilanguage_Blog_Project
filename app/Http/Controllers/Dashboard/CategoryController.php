@@ -23,10 +23,11 @@ class CategoryController extends Controller
     {
 
         $data = Category::select('*')->with('parent');
-        return DataTables::of($data)->addIndexColumn()
+        $data = DataTables::of($data)
+            ->addIndexColumn()
             ->addColumn('action',function ($row){
                 return $btn = '
-                <a href="'.Route('dashboard.users.edit',$row->id).'" class="edit btn btn-success btn-sm"><i class="fa fa-edit"></i><a/>
+                <a href="'.Route('dashboard.category.edit',$row->id).'" class="edit btn btn-success btn-sm"><i class="fa fa-edit"></i><a/>
                 <a id="deleteBtn" data-id="'.$row->id.'" class="edit btn btn-danger btn-sm" data-toggle="modal"
                 data-target="#deletemodal"><i class="fa fa-trash"></i></a>';
             })
@@ -57,6 +58,7 @@ class CategoryController extends Controller
 //            })
             ->rawColumns(['action', 'status'])
             ->make(true);
+        dd($data);
     }
 
     /**
