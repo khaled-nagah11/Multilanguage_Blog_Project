@@ -23,14 +23,20 @@ class CategoryController extends Controller
     public function getCategoriesDatatable()
     {
 
-        $data = Category::select('*')->with('parent');
-        $data = DataTables::of($data)
+        $data = Category::select('*')->with('getParent');
+        return DataTables::of($data)
             ->addIndexColumn()
             ->addColumn('action',function ($row){
                 return $btn = '
                 <a href="'.Route('dashboard.category.edit',$row->id).'" class="edit btn btn-success btn-sm"><i class="fa fa-edit"></i><a/>
                 <a id="deleteBtn" data-id="'.$row->id.'" class="edit btn btn-danger btn-sm" data-toggle="modal"
                 data-target="#deletemodal"><i class="fa fa-trash"></i></a>';
+            })
+            ->addColumn('parent',function ($row){
+                return $row->parant;
+            })
+            ->addColumn('title',function ($row){
+                return $row->translate(app()->getLocale())->title;
             })
             ->addColumn('status', function ($row) {
                 return $row->status == null ? __('words.not activated') : __('words.' . $row->status);
@@ -57,7 +63,7 @@ class CategoryController extends Controller
 //            ->addColumn('status', function ($row) {
 //                return $row->status == null ? __('words.not activated') : __('words.' . $row->status);
 //            })
-            ->rawColumns(['action', 'status'])
+            ->rawColumns(['action', 'status' , 'title'])
             ->make(true);
     }
 
