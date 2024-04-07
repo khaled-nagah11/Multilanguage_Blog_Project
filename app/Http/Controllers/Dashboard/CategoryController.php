@@ -52,7 +52,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        $categories = Category::all();
+        $categories = Category::whereNull('parent')->orwhere('parent',0)->get();
         return view('dashboard.categories.add' , compact('categories'));
     }
 
