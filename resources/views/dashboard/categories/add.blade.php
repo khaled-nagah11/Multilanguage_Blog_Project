@@ -1,5 +1,4 @@
 @extends('dashboard.layouts.layout')
-
 @section('body')
     <!-- Breadcrumb -->
     <ol class="breadcrumb">
@@ -7,7 +6,6 @@
         <li class="breadcrumb-item"><a href="#">{{ __('words.categories') }}</a>
         </li>
         <li class="breadcrumb-item active">{{ __('words.add category') }}</li>
-
         <!-- Breadcrumb Menu-->
         <li class="breadcrumb-menu">
             <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
@@ -26,9 +24,7 @@
                     @if ($errors->any())
                         <div class="alert alert-danger">
                             <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
+                                @foreach ($errors->all() as $error) <li>{{ $error }}</li> @endforeach
                             </ul>
                         </div>
                     @endif
@@ -39,8 +35,7 @@
                         <div class="card-block">
                             <div class="form-group col-md-12">
                                 <label>{{ __('words.image') }}</label>
-                                <input type="file" name="name" class="form-control" placeholder="{{ __('words.image') }}"
-                                >
+                                <input type="file" name="name" class="form-control" placeholder="{{ __('words.image') }}">
                             </div>
                             <div class="form-group col-md-12">
                                 <label>{{ __('words.status') }}</label>
@@ -68,8 +63,7 @@
                                 </ul>
                                 <div class="tab-content" id="myTabContent">
                                     @foreach (config('app.languages') as $key => $lang)
-                                        <div class="tab-pane mt-3 fade @if ($loop->index == 0) show active in @endif"
-                                             id="{{ $key }}" role="tabpanel" aria-labelledby="home-tab">
+                                        <div class="tab-pane mt-3 fade @if ($loop->index == 0) show active in @endif" id="{{ $key }}" role="tabpanel" aria-labelledby="home-tab">
                                             <br>
                                             <div class="form-group mt-3 col-md-12">
                                                 <label>{{ __('words.title') }} - {{ $lang }}</label>
@@ -84,16 +78,12 @@
                                 </div>
                             </div>
                             <div class="card-footer">
-                                <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i>
-                                    Submit</button>
-                                <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i>
-                                    Reset</button>
+                                <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit </button>
+                                <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Reset </button>
                             </div>
                         </div>
-
                         <div class="card-footer">
-                            <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i>
-                                Submit</button>
+                            <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit </button>
                         </div>
                     </div>
                 </div>

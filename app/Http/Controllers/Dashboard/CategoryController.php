@@ -85,9 +85,10 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Category $category)
     {
-        //
+        $categories = Category::whereNull('parent')->orWhere('parent', 0)->get();
+        return view('dashboard.categories.edit', compact('category', 'categories'));
     }
 
     /**
