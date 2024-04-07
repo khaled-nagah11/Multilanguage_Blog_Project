@@ -10,8 +10,8 @@
         <li class="breadcrumb-menu">
             <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
                 <a class="btn btn-secondary" href="#"><i class="icon-speech"></i></a>
-                <a class="btn btn-secondary" href="./"><i class="icon-graph"></i> &nbsp;{{ __('words.categories') }}</a>
-                <a class="btn btn-secondary" href="#"><i class="icon-settings"></i> &nbsp;{{ __('words.add user') }}</a>
+                <a class="btn btn-secondary" href="./"><i class="icon-graph"></i> &nbsp;{{ __('words.Categories') }}</a>
+                <a class="btn btn-secondary" href="#"><i class="icon-settings"></i> &nbsp;{{ __('words.Edit Categories') }}</a>
             </div>
         </li>
     </ol>
@@ -30,7 +30,7 @@
                     @endif
                     <div class="card">
                         <div class="card-header">
-                            <strong>{{ __('words.users') }}</strong>
+                            <strong>{{ __('words.Edit categories') }}</strong>
                         </div>
                         <div class="card-block">
                             <img src="{{asset($category->image)}}" alt="" height="50px;">
