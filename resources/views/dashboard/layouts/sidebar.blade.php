@@ -5,22 +5,35 @@
                 <a class="nav-link" href="index.html"><i class="icon-speedometer"></i> {{__('words.dashboard')}} <span class="tag tag-info">جدید</span></a>
             </li>
             {{--         sidebar users--}}
-            <li class="nav-title">
-                {{__('words.Users')}}
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{route('dashboard.users.create')}}"><i class="icon-user-follow"></i>{{__('words.add user')}}</a>
-                <a class="nav-link" href="{{route('dashboard.users.index')}}"><i class="icon-people"></i>{{__('words.users')}}</a>
-                <a class="nav-link" href="#"><i class="icon-user-following"></i> دسترسی کاربران</a>
+            <li class="nav-item nav-dropdown">
+                <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-puzzle"></i>{{__('words.Users')}}</a>
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('dashboard.users.create')}}"><i class="icon-user-follow"></i>{{__('words.add user')}}</a>
+                        <a class="nav-link" href="{{route('dashboard.users.index')}}"><i class="icon-people"></i>{{__('words.users')}}</a>
+                        <a class="nav-link" href="#"><i class="icon-user-following"></i> دسترسی کاربران</a>
+                    </li>
+                </ul>
             </li>
             {{--         sidebar categories--}}
-            <li class="nav-title">
-                {{__('words.Categories')}}
+            <li class="nav-item nav-dropdown">
+                <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-puzzle"></i>{{__('words.Categories')}}</a>
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('dashboard.category.create')}}"><i class="icon-user-follow"></i>{{__('words.add Category')}}</a>
+                        <a class="nav-link" href="{{route('dashboard.category.index')}}"><i class="icon-people"></i>{{__('words.Categories')}}</a>
+                    </li>
+                </ul>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{route('dashboard.category.create')}}"><i class="icon-user-follow"></i>{{__('words.add Category')}}</a>
-                <a class="nav-link" href="{{route('dashboard.category.index')}}"><i class="icon-people"></i>{{__('words.Categories')}}</a>
-                <a class="nav-link" href="#"><i class="icon-user-following"></i> دسترسی کاربران</a>
+            {{--         sidebar Posts--}}
+            <li class="nav-item nav-dropdown">
+                <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-puzzle"></i>{{__('words.Posts')}}</a>
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a class="nav-link" href=""><i class="icon-user-follow"></i>{{__('words.add Post')}}</a>
+                        <a class="nav-link" href=""><i class="icon-people"></i>{{__('words.Posts')}}</a>
+                    </li>
+                </ul>
             </li>
             {{--         sidebar settings--}}
             <li class="nav-title">
@@ -33,7 +46,8 @@
 
 
 
-            <!--<li class="nav-item nav-dropdown">
+
+            <li class="nav-item nav-dropdown">
                 <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-puzzle"></i> ثبت کاربر جدید</a>
                 <ul class="nav-dropdown-items">
                     <li class="nav-item">
@@ -55,7 +69,7 @@
                         <a class="nav-link" href="components-tables.html"><i class="icon-puzzle"></i> Tables</a>
                     </li>
                 </ul>
-            </li>-->
+            </li>
 
             <!--<li class="nav-item nav-dropdown">
                 <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-star"></i> Icons</a>
