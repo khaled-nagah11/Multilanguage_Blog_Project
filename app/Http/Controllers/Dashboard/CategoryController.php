@@ -105,4 +105,13 @@ class CategoryController extends Controller
     {
         //
     }
+    public function delete(Request $request)
+    {
+        if (is_numeric($request->id))
+        {
+            Category::where('parent',$request->id)->delete();
+            Category::where('id',$request->id)->delete();
+        }
+        return redirect()->route('dashboard.category.index');
+    }
 }

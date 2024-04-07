@@ -42,7 +42,7 @@
     <div class="modal fade" id="deletemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
          aria-hidden="true">
         <div class="modal-dialog">
-            <form action="" method="POST">
+            <form action="{{ Route('dashboard.category.delete')}}" method="POST">
                 <div class="modal-content">
 
                     <div class="modal-body">
