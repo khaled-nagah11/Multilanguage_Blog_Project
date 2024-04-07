@@ -94,9 +94,18 @@ class CategoryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Category $category)
     {
+        $category->update($request->except('image', '_token'));
+        if ($request->file('image')) {
+            $file = $request->file('image');
+            $filename = Str::uuid() . $file->getClientOriginalName();
+            $file->move(public_path('images'), $filename);
+            $path = 'images/' . $filename;
 
+            $category->update(['image' => $path]);
+        }
+        return redirect()->route('dashboard.category.index');
     }
 
     /**
