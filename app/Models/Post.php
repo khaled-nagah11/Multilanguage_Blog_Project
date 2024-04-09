@@ -10,6 +10,6 @@ use Astrotomic\Translatable\Translatable;
 class Post extends Model implements TranslatableContract
 {
     use HasFactory ,Translatable ;
-    public $translatedAttributes = ['title', 'content', 'smallDesc'];
+    public $translatedAttributes = ['title', 'content', 'smallDesc', 'tags'];
     protected $fillable = ['id', 'image', 'category_id', 'deleted_at', 'created_at', 'updated_at'];
 }

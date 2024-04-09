@@ -11,12 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('post_tag', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('post_id');
-            $table->integer('tag_id');
-            $table->softDeletes();
-            $table->timestamps();
+        Schema::table('post_translations', function (Blueprint $table) {
+            $table->text('tags')->nullable();
         });
     }
 
@@ -25,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('post_tag');
+        Schema::table('post_translations', function (Blueprint $table) {
+            $table->dropColumn('tags');
+        });
     }
 };

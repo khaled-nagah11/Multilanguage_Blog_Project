@@ -36,7 +36,7 @@
                             <img src="{{asset($category->image)}}" alt="" height="50px;">
                             <div class="form-group col-md-12">
                                 <label>{{ __('words.image') }}</label>
-                                <input type="file" name="image" class="form-control" placeholder="{{ __('words.image') }}">
+                                <input type="file" name="image" class="form-control" placeholder="">
                             </div>
                             <div class="form-group col-md-12">
                                 <label>{{ __('words.status') }}</label>
