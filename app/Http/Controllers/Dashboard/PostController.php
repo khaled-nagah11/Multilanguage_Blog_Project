@@ -1,7 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Dashboard;
 
+use App\Http\Controllers\Controller;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -11,7 +13,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        return view('dashboard.posts.index');
     }
 
     /**
@@ -19,7 +21,11 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+        if (count($categories)>0) {
+            return view('dashboard.posts.add' , compact('categories'));
+        }
+        abort(404);
     }
 
     /**
