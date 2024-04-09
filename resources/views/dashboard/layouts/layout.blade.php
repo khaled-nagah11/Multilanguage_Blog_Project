@@ -353,28 +353,21 @@
         </div>
     </div>
 </aside>
-
 <footer class="footer">
         <span class="text-left">
             <a href="http://coreui.io">CoreUI</a> &copy; 2016 creativeLabs.
         </span>
-    <span class="pull-right">
-            Powered by <a href="http://coreui.io">CoreUI</a>
-        </span>
+    <span class="pull-right"> Powered by <a href="http://coreui.io">CoreUI</a></span>
 </footer>
 <!-- Bootstrap and necessary plugins -->
 <script src="{{asset('Admin-Assets/js/libs/jquery.min.js')}}"></script>
 <script src="{{asset('Admin-Assets/js/libs/tether.min.js')}}"></script>
 <script src="{{asset('Admin-Assets/js/libs/bootstrap.min.js')}}"></script>
 <script src="{{asset('Admin-Assets/js/libs/pace.min.js')}}"></script>
-
 <!-- Plugins and scripts required by all views -->
 <script src="{{asset('Admin-Assets/js/libs/Chart.min.js')}}"></script>
-
 <!-- CoreUI main scripts -->
-
 <script src="{{asset('Admin-Assets/js/app.js')}}"></script>
-
 <!-- Plugins and scripts required by this views -->
 <!-- Custom scripts required by this view -->
 <script src="{{asset('Admin-Assets/js/views/main.js')}}"></script>
@@ -382,12 +375,15 @@
 <script src="//localhost:35729/livereload.js"></script>
 <script src="https://cdn.datatables.net/2.0.3/js/dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/2.0.3/js/dataTables.bootstrap5.min.js"></script>
+<script src="https://cdn.ckeditor.com/ckeditor5/41.2.1/classic/ckeditor.js"></script>
 <script>
-    // $(document).ready(function (){
-    //    $('#table_id').DataTable({
-    //       processing: true,
-    //    });
-    // });
+    var allEditors = document.querySelectorAll('#editor');
+    for (var i = 0; i < allEditors.length; ++i) {
+        ClassicEditor.create(allEditors[i]);
+    }
+    $(document).ready(function() {
+        $('.js-example-basic-multiple').select2();
+    });
 </script>
 @stack('javascripts')
 </body>

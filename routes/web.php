@@ -4,6 +4,7 @@ use App\Http\Controllers\Dashboard\CategoryController;
 use App\Http\Controllers\Dashboard\SettingController;
 use App\Http\Controllers\Dashboard\UserController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -41,14 +42,16 @@ Route::group(['prefix' =>'dashboard' , 'as'=>'dashboard.', 'middleware'=>['auth'
     Route::get('/category/all' ,[CategoryController::class , 'getCategoriesDatatable'])->name('category.all');
     Route::post('/category/delete' ,[CategoryController::class , 'delete'])->name('category.delete');
 
+    Route::get('/posts/all' ,[PostController::class , 'getCategoriesDatatable'])->name('posts.all');
+    Route::post('/posts/delete' ,[PostController::class , 'delete'])->name('posts.delete');
+
 
     Route::resources([
         'users'=>UserController::class,
         'category'=>CategoryController::class,
+        'posts'=>PostController::class,
     ]);
 
 });
-
 Auth::routes();
-
 Route::get('/home', [HomeController::class, 'index'])->name('home');
