@@ -42,7 +42,7 @@ Route::group(['prefix' =>'dashboard' , 'as'=>'dashboard.', 'middleware'=>['auth'
     Route::get('/category/all' ,[CategoryController::class , 'getCategoriesDatatable'])->name('category.all');
     Route::post('/category/delete' ,[CategoryController::class , 'delete'])->name('category.delete');
 
-    Route::get('/posts/all' ,[PostController::class , 'getCategoriesDatatable'])->name('posts.all');
+    Route::get('/posts/all' ,[PostController::class , 'getPostsDatatable'])->name('posts.all');
     Route::post('/posts/delete' ,[PostController::class , 'delete'])->name('posts.delete');
 
 

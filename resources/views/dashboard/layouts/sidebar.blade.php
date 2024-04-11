@@ -30,8 +30,8 @@
                 <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-puzzle"></i>{{__('words.Posts')}}</a>
                 <ul class="nav-dropdown-items">
                     <li class="nav-item">
-                        <a class="nav-link" href=""><i class="icon-user-follow"></i>{{__('words.add Post')}}</a>
-                        <a class="nav-link" href=""><i class="icon-people"></i>{{__('words.Posts')}}</a>
+                        <a class="nav-link" href="{{ route('dashboard.posts.create') }}"><i class="icon-user-follow"></i>{{__('words.add Post')}}</a>
+                        <a class="nav-link" href="{{ route('dashboard.posts.index') }}"><i class="icon-people"></i>{{__('words.Posts')}}</a>
                     </li>
                 </ul>
             </li>
