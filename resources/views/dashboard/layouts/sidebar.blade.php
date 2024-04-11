@@ -10,7 +10,7 @@
                 <ul class="nav-dropdown-items">
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('dashboard.users.create')}}"><i class="icon-user-follow"></i>{{__('words.add user')}}</a>
-                        <a class="nav-link" href="{{route('dashboard.users.index')}}"><i class="icon-people"></i>{{__('words.users')}}</a>
+                        <a class="nav-link" href="{{route('dashboard.users.index')}}"><i class="icon-people"></i>{{__('words.Users')}}</a>
                         <a class="nav-link" href="#"><i class="icon-user-following"></i> دسترسی کاربران</a>
                     </li>
                 </ul>
@@ -20,7 +20,7 @@
                 <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-puzzle"></i>{{__('words.Categories')}}</a>
                 <ul class="nav-dropdown-items">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('dashboard.category.create')}}"><i class="icon-user-follow"></i>{{__('words.add Category')}}</a>
+                        <a class="nav-link" href="{{route('dashboard.category.create')}}"><i class="icon-user-follow"></i>{{__('words.add category')}}</a>
                         <a class="nav-link" href="{{route('dashboard.category.index')}}"><i class="icon-people"></i>{{__('words.Categories')}}</a>
                     </li>
                 </ul>
@@ -30,7 +30,7 @@
                 <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-puzzle"></i>{{__('words.Posts')}}</a>
                 <ul class="nav-dropdown-items">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('dashboard.posts.create') }}"><i class="icon-user-follow"></i>{{__('words.add Post')}}</a>
+                        <a class="nav-link" href="{{ route('dashboard.posts.create') }}"><i class="icon-user-follow"></i>{{__('words.add post')}}</a>
                         <a class="nav-link" href="{{ route('dashboard.posts.index') }}"><i class="icon-people"></i>{{__('words.Posts')}}</a>
                     </li>
                 </ul>

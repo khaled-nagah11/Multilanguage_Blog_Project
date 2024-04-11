@@ -39,7 +39,7 @@ class PostController extends Controller
             ->addIndexColumn()
             ->addColumn('action',function ($row){
                 return $btn = '
-                <a href="'.Route('dashboard.category.edit',$row->id).'" class="edit btn btn-success btn-sm"><i class="fa fa-edit"></i><a/>
+                <a href="'.Route('dashboard.posts.edit',$row->id).'" class="edit btn btn-success btn-sm"><i class="fa fa-edit"></i><a/>
                 <a id="deleteBtn" data-id="'.$row->id.'" class="edit btn btn-danger btn-sm" data-toggle="modal"
                 data-target="#deletemodal"><i class="fa fa-trash"></i></a>';
             })
@@ -78,17 +78,23 @@ class PostController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Post $post)
     {
-        //
+        $categories = Category::all();
+        return view('dashboard.posts.edit', compact('post','categories'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Post $post)
     {
-        //
+        $post->update($request->except('image','_token'));
+        if ($request->has('image'))
+        {
+            $post->update(['image'=>$this->upload($request->image)]);
+        }
+        return redirect()->route('dashboard.posts.edit',$post);
     }
 
     /**
