@@ -98,4 +98,11 @@ class PostController extends Controller
     {
         //
     }
+    public function delete (Request $request)
+    {
+        if(is_numeric($request->id)){
+            Post::where('id' , $request->id)->delete();
+        }
+        return redirect()->route('dashboard.posts.index');
+    }
 }
