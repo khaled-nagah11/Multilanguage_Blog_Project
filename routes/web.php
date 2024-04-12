@@ -30,9 +30,7 @@ Route::group(['prefix' =>'dashboard' , 'as'=>'dashboard.', 'middleware'=>['auth'
         return view('dashboard.layouts.layout');
     })->name('dashboard');
 
-    Route::get('/settings', function (){
-      return view('dashboard.settings');
-    })->name('settings');
+    Route::get('/settings',[SettingController::class , 'index'])->name('settings');
 
     Route::post('/settings/update/{setting}' ,[SettingController::class , 'update'])->name('settings.update');
 

@@ -28,6 +28,4 @@ class Setting extends Model implements TranslatableContract
         }
         return self::first();
     }
-
-
 }

@@ -44,7 +44,6 @@ class PostController extends Controller
         return  Datatables::of($data)
             ->addIndexColumn()
             ->addColumn('action', function ($row) {
-
                 if(auth()->user()->can('update', $row)){
                     return $btn = '
                         <a href="' . Route('dashboard.posts.edit', $row->id) . '"  class="edit btn btn-success btn-sm" ><i class="fa fa-edit"></i></a>
@@ -53,12 +52,9 @@ class PostController extends Controller
                     return;
                 }
             })
-
             ->addColumn('category_name', function ($row) {
                 return  $row->category->translate(app()->getLocale())->title;
             })
-
-
             ->addColumn('title', function ($row) {
                 return $row->translate(app()->getLocale())->title;
             })
@@ -71,6 +67,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('create' , $this->postmodel);
         $post = Post::create($request->except('image','_token'));
         $post->update(['user_id' => auth()->user()->id]);
         if ($request->has('image')) {
@@ -93,6 +90,7 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
+        $this->authorize('update',$post);
         $categories = Category::all();
         return view('dashboard.posts.edit', compact('post','categories'));
     }
@@ -102,6 +100,7 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
+        $this->authorize('update',$post);
         $post->update($request->except('image','_token'));
         $post->update(['user_id' => auth()->user()->id]);
         if ($request->has('image'))
@@ -120,6 +119,7 @@ class PostController extends Controller
     }
     public function delete (Request $request)
     {
+        $this->authorize('delete' , $this->postmodel->find($request->id));
         if(is_numeric($request->id)){
             Post::where('id' , $request->id)->delete();
         }
