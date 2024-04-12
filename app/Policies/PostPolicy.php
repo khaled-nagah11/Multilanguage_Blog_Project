@@ -29,7 +29,7 @@ class PostPolicy
      */
     public function create(User $user): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -37,7 +37,7 @@ class PostPolicy
      */
     public function update(User $user, Post $post): bool
     {
-        //
+        return  ($user->id === $post->user_id || $user->status == 'admin') ;
     }
 
     /**
@@ -45,7 +45,7 @@ class PostPolicy
      */
     public function delete(User $user, Post $post): bool
     {
-        //
+        return  ($user->id === $post->user_id || $user->status == 'admin') ;
     }
 
     /**
@@ -61,6 +61,6 @@ class PostPolicy
      */
     public function forceDelete(User $user, Post $post): bool
     {
-        //
+        return  ($user->status == 'admin') ;
     }
 }
