@@ -40,14 +40,14 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle nav-link" data-toggle="dropdown" href="#" role="button"
                    aria-haspopup="true" aria-expanded="false">
-                    <span class="hidden-md-down">{{ __('words.settings') }}</span>
+                    <span class="hidden-md-down">{{ __('words.Setting') }}</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
                     <div class="dropdown-header text-xs-center">
-                        <strong>{{ __('words.settings') }}</strong>
+                        <strong>{{ __('words.Setting') }}</strong>
                     </div>
                     <a class="dropdown-item" href="{{ route('dashboard.users.edit', auth()->user()) }}"><i
-                            class="fa fa-user"></i> {{ __('words.user settings') }}</a>
+                            class="fa fa-user"></i> {{ __('words.user setting') }}</a>
                     <div class="divider"></div>
 
                     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
