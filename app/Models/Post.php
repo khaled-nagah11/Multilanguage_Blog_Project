@@ -12,13 +12,12 @@ class Post extends Model implements TranslatableContract
 {
     use HasFactory ,Translatable,SoftDeletes ;
     public $translatedAttributes = ['title', 'content', 'smallDesc', 'tags'];
-    protected $fillable = ['id', 'image', 'category_id', 'deleted_at', 'created_at', 'updated_at'];
+    protected $fillable = ['id', 'image', 'category_id', 'deleted_at', 'created_at', 'updated_at' , 'user_id'];
 
     public function category()
     {
         return $this->belongsTo(Category::class , 'category_id');
     }
-
 
     public function user()
     {
