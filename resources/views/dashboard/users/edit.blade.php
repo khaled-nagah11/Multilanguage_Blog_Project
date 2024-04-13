@@ -43,22 +43,20 @@
                                 <label>{{ __('words.email') }}</label>
                                 <input type="text" name="email" class="form-control" placeholder="{{ __('words.email') }}" value="{{ $user->email }}">
                             </div>
-{{--                            @can('viewAny', $user)--}}
+                            @can('viewAny', $user)
                                 <div class="form-group col-md-12">
                                     <label>{{ __('words.status') }}</label>
                                     <select name="status" id="" class="form-control">
-                                        <option value="admin" @if ($user->status == 'admin')selected @endif>Admin</option>
-                                        <option value="writer" @if ($user->status == 'Writer')selected @endif>Writer</option>
-                                        <option value="" @if ($user->status == '')selected @endif>غير مفعل </option>
+                                        <option value="admin" @if ($user->status == 'admin') selected @endif>Admin</option>
+                                        <option value="writer" @if ($user->status == 'Writer') selected @endif>Writer</option>
+                                        <option value="" @if ($user->status == '') selected @endif>غير مفعل </option>
                                     </select>
                                 </div>
-{{--                            @endcan--}}
+                            @endcan
                         </div>
                         <div class="card-footer">
-                            <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i>
-                                Submit</button>
-                            <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i>
-                                Reset</button>
+                            <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit </button>
+                            <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Reset </button>
                         </div>
                     </div>
                 </div>
