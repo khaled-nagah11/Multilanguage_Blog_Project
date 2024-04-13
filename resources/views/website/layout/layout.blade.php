@@ -33,8 +33,20 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4 text-right d-none d-md-block">
-            {{ Date('D Y,M,d') }}
+        <div class="col-4 text-right " style="display: flex ; align-items: center;justify-content: center">
+            <div>
+                {{ Date('D Y,M,d') }}
+            </div>
+            <div class="col-md-4 text-right d-none d-md-block">
+
+                    <a class="nav-link nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-language fa-lg m-t-2" style="display: inline"></i> <span class="hidden-md-down">{{ LaravelLocalization::getCurrentLocaleNative() }}</span></a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        @foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                            <a class="dropdown-item" rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">{{ $properties['native'] }}</a>
+                        @endforeach
+                    </div>
+                
+            </div>
         </div>
     </div>
     <div class="row align-items-center py-2 px-lg-5">
@@ -76,20 +88,7 @@
                     </div>
                 @endforeach
             </div>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle nav-link" data-toggle="dropdown" href="#" role="button"
-                   aria-haspopup="true" aria-expanded="false">
-                    <span class="hidden-md-down">{{ LaravelLocalization::getCurrentLocaleNative() }}</span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right">
-                    @foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
-                        <a class="dropdown-item" rel="alternate" hreflang="{{ $localeCode }}"
-                           href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
-                            {{ $properties['native'] }}
-                        </a>
-                    @endforeach
-                </div>
-            </li>
+
             <div class="input-group ml-auto" style="width: 100%; max-width: 300px;">
                 <input type="text" class="form-control" placeholder="Keyword">
                 <div class="input-group-append">

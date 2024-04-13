@@ -23,6 +23,8 @@ use Illuminate\Support\Facades\Route;
 
 //website routes
 Route::get('/' ,[IndexController::class , 'index'])->name('index');
+Route::get('/categories/{category}', [\App\Http\Controllers\Website\CategoryController::class, 'show'])->name('category');
+Route::get('/post/{post}', [\App\Http\Controllers\Website\PostController::class, 'show'])->name('post');
 
 
 

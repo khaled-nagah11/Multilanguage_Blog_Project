@@ -7,10 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
 use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Staudenmeir\EloquentEagerLimit\HasEagerLimit;
 
 class Category extends Model implements TranslatableContract
 {
-    use HasFactory ,translatable ,SoftDeletes;
+    use HasFactory ,translatable ,SoftDeletes,HasEagerLimit;
 
     public $translatedAttributes = ['title', 'content'];
     protected $fillable = ['id', 'image', 'parent', 'deleted_at', 'created_at', 'updated_at'];
