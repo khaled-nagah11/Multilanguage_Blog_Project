@@ -5,6 +5,7 @@ use App\Http\Controllers\Dashboard\PostController;
 use App\Http\Controllers\Dashboard\SettingController;
 use App\Http\Controllers\Dashboard\UserController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Website\IndexController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -20,11 +21,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 
+//website routes
+Route::get('/' ,[IndexController::class , 'index'])->name('index');
 
-Route::get('/' , function (){
-   return view('dashboard.index');
-});
 
+
+// Dashboard routes
 Route::group(['prefix' =>'dashboard' , 'as'=>'dashboard.', 'middleware'=>['auth','CheckLogin']], function (){
     Route::get('/', function (){
         return view('dashboard.layouts.layout');
