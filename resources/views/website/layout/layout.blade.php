@@ -45,7 +45,7 @@
                             <a class="dropdown-item" rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">{{ $properties['native'] }}</a>
                         @endforeach
                     </div>
-                
+
             </div>
         </div>
     </div>
